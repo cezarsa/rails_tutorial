@@ -11,4 +11,5 @@ echo "source ~/.profile" >> ~/.bash_profile
 
 gem install rails --no-ri --no-rdoc
 
-sudo apt-get install git -y
+sudo apt-get update
+sudo apt-get install git nodejs -y
