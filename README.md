@@ -12,6 +12,7 @@
 - `git clone git@github.com:cezarsa/rails_tutorial.git`
 - `cd rails_tutorial`
 - `./provision.sh`
+- `source ~/.rvm/scripts/rvm`
 
 ## Com Vagrant
 
@@ -30,3 +31,4 @@
 ### Usando ambiente
 
 - `vagrant ssh`
+- `cd /vagrant`
