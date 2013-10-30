@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Padaria::Application.config.secret_key_base = 'a01205a38b4c4366fe4d7851ff483bc64c4db41ea1ec6cce3c5276e0afc70d5170f8634dfc383a5eee300e248556f65ba9a6381c6b170ecbcc1ed3f4df44a8d3'
+Padaria::Application.config.secret_key_base = '080b4ac1311be778dc0b86e41dfcba7dce837d760f2c583f32bd9871d0e8ac44e1fb03706ae9cd482e30c9cbad1fa3bd22bf9cdfcdd4af0ff3b0441a52c0eb2d'
