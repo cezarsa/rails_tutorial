@@ -1,5 +1,18 @@
 # Rails Workshop
 
+## Localmente
+
+### Dependências
+
+- Linux ou OSX
+- Git
+
+### Setup do ambiente
+
+- `git clone git@github.com:cezarsa/rails_tutorial.git`
+- `cd rails_tutorial`
+- `./provision.sh`
+
 ## Com Vagrant
 
 ### Dependências
@@ -17,15 +30,3 @@
 ### Usando ambiente
 
 - `vagrant ssh`
-
-## Localmente
-
-### Dependências
-
-- Git
-
-### Setup do ambiente
-
-- `git clone git@github.com:cezarsa/rails_tutorial.git`
-- `cd rails_tutorial`
-- `./provision.sh`
