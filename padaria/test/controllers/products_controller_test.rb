@@ -4,6 +4,7 @@ class ProductsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
+    assert_not_nil assigns(:products)
     assert_select 'a[href*="welcome"]'
     assert_select 'a[href*="products/new"]'
   end
@@ -59,5 +60,15 @@ class ProductsControllerTest < ActionController::TestCase
     assert_equal Product.count, old_count
     assert_equal assigns[:product].name, 'meu pao'
     assert_redirected_to product_path(assigns[:product].id)
+  end
+
+  test "should destroy product" do
+    product = products(:one)
+
+    old_count = Product.count
+    delete :destroy, id: product.id
+    assert_equal Product.count, old_count - 1
+
+    assert_redirected_to products_path
   end
 end

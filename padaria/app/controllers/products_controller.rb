@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def index
+    @products = Product.all
   end
 
   def new
@@ -24,5 +25,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.update(params.require(:product).permit(:name, :price))
     redirect_to product_path(@product)
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_path
   end
 end
