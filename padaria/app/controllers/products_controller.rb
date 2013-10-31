@@ -9,8 +9,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(params.require(:product).permit(:name, :price))
-    @product.save
-    redirect_to product_path(@product)
+    if @product.save
+      redirect_to product_path(@product)
+    else
+      render :new
+    end
   end
 
   def show
@@ -23,8 +26,11 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(params.require(:product).permit(:name, :price))
-    redirect_to product_path(@product)
+    if @product.update(params.require(:product).permit(:name, :price))
+      redirect_to product_path(@product)
+    else
+      render :edit
+    end
   end
 
   def destroy

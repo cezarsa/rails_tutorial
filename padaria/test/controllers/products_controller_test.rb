@@ -27,6 +27,17 @@ class ProductsControllerTest < ActionController::TestCase
     assert_redirected_to product_path(assigns[:product].id)
   end
 
+  test "should not create invalid product" do
+    old_count = Product.count
+
+    post :create, product: { name: '', price: 10 }
+
+    assert_equal Product.count, old_count
+    assert_equal assigns[:product].price, 10
+    assert_template :new
+    assert_select '.errors', /name.*blank/i
+  end
+
   test "should get product" do
     product = products(:one)
 
@@ -60,6 +71,15 @@ class ProductsControllerTest < ActionController::TestCase
     assert_equal Product.count, old_count
     assert_equal assigns[:product].name, 'meu pao'
     assert_redirected_to product_path(assigns[:product].id)
+  end
+
+  test "should not update invalid product" do
+    product = products(:one)
+
+    patch :update, id: product, product: { name: '', price: 10 }
+
+    assert_template :edit
+    assert_select '.errors', /name.*blank/i
   end
 
   test "should destroy product" do

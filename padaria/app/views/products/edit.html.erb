@@ -1,5 +1,13 @@
 <h1>Editar produto</h1>
 
+<% if @product.errors.size > 0 %>
+<ul class="errors">
+    <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
+
 <%= form_for(@product) do |f| %>
   <div><%= f.label :name, 'Nome' %></div>
   <div><%= f.text_field :name %></div>
