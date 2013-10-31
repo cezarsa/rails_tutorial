@@ -25,4 +25,16 @@ class ProductsControllerTest < ActionController::TestCase
     assert_equal assigns[:product].name, 'meu pao'
     assert_redirected_to product_path(assigns[:product].id)
   end
+
+  test "should get product" do
+    product = products(:one)
+
+    get :show, id: product.id
+
+    assert_response :success
+    assert_equal assigns[:product], product
+    assert_select '*', /#{product.name}/
+    assert_select '*', /#{product.price}/
+    assert_select 'a[href*="/edit"]'
+  end
 end

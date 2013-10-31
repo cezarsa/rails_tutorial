@@ -1,0 +1,8 @@
+<h1><%= @product.name %></h1>
+<p>
+  <strong>Preço:</strong>
+  <%= @product.price %>
+</p>
+
+<%= link_to 'Editar', edit_product_path(@product) %>
+<%= link_to 'Produtos', products_path %>
