@@ -6,9 +6,21 @@
         <tr>
             <td><%= product.name %></td>
             <td><%= product.price %></td>
-            <td><%= link_to 'Ver', product_path(product) %></td>
-            <td><%= link_to 'Editar', edit_product_path(product) %></td>
-            <td><%= link_to 'Apagar', product_path(product), method: :delete %></td>
+            <td>
+                <%= link_to product_path(product) do %>
+                    <div class="show"></div>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to edit_product_path(product) do %>
+                    <div class="edit"></div>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to product_path(product), method: :delete do %>
+                    <div class="destroy"></div>
+                <% end %>
+            </td>
         </tr>
     <% end %>
 </table>
