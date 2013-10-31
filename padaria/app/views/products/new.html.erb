@@ -1,0 +1,13 @@
+<h1>Novo produto</h1>
+
+<%= form_for(@product) do |f| %>
+  <div><%= f.label :name, 'Nome' %></div>
+  <div><%= f.text_field :name %></div>
+
+  <div><%= f.label :price, 'Preço' %></div>
+  <div><%= f.text_field :price %></div>
+
+  <%= f.submit 'Criar Produto' %>
+<% end %>
+
+<%= link_to 'Produtos', products_path %>
