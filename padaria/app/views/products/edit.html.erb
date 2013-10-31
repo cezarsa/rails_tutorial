@@ -1,22 +1,6 @@
 <h1>Editar produto</h1>
 
-<% if @product.errors.size > 0 %>
-<ul class="errors">
-    <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-</ul>
-<% end %>
-
-<%= form_for(@product) do |f| %>
-  <div><%= f.label :name, 'Nome' %></div>
-  <div><%= f.text_field :name %></div>
-
-  <div><%= f.label :price, 'Preço' %></div>
-  <div><%= f.text_field :price %></div>
-
-  <%= f.submit 'Salvar Produto' %>
-<% end %>
+<%= render partial: 'form', locals: { submit_label: 'Salvar Produto' } %>
 
 <%= link_to 'Ver', product_path(@product) %>
 <%= link_to 'Produtos', products_path %>
