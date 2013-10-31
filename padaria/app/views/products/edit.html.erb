@@ -1,0 +1,14 @@
+<h1>Editar produto</h1>
+
+<%= form_for(@product) do |f| %>
+  <div><%= f.label :name, 'Nome' %></div>
+  <div><%= f.text_field :name %></div>
+
+  <div><%= f.label :price, 'Preço' %></div>
+  <div><%= f.text_field :price %></div>
+
+  <%= f.submit 'Salvar Produto' %>
+<% end %>
+
+<%= link_to 'Ver', product_path(@product) %>
+<%= link_to 'Produtos', products_path %>
