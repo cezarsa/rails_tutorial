@@ -7,4 +7,10 @@ class StaticsControllerTest < ActionController::TestCase
     assert_select 'h1', /padaria/i
     assert_select 'p', /bem-vindo/i
   end
+
+  test "should get about" do
+    get :about
+    assert_response :success
+    assert_select '*', /fresquinho/
+  end
 end
