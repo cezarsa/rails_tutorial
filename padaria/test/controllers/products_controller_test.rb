@@ -37,4 +37,27 @@ class ProductsControllerTest < ActionController::TestCase
     assert_select '*', /#{product.price}/
     assert_select 'a[href*="/edit"]'
   end
+
+  test "should get edit" do
+    product = products(:one)
+    get :edit, id: product.id
+
+    assert_response :success
+    assert_select 'form[action*=?]', "products/#{product.id}"
+    assert_select "input[name*=\"name\"][value=#{product.name}]"
+    assert_select "input[name*=\"price\"][value=#{product.price.to_i}]"
+    assert_select 'input[type="submit"]'
+  end
+
+  test "should update product" do
+    product = products(:one)
+
+    old_count = Product.count
+
+    patch :update, id: product, product: { name: 'meu pao', price: 10 }
+
+    assert_equal Product.count, old_count
+    assert_equal assigns[:product].name, 'meu pao'
+    assert_redirected_to product_path(assigns[:product].id)
+  end
 end
