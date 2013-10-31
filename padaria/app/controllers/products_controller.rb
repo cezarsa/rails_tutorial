@@ -12,4 +12,8 @@ class ProductsController < ApplicationController
     @product.save
     redirect_to product_path(@product)
   end
+
+  def show
+    @product = Product.find(params[:id])
+  end
 end
