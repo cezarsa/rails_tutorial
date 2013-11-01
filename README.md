@@ -1,5 +1,7 @@
 # Rails Workshop
 
+## [Slides](https://www.dropbox.com/s/r101fqkzrtw19pc/rubyonrails.pdf)
+
 ## Localmente
 
 ### Dependências
